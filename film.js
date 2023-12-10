@@ -119,6 +119,11 @@ const filmy = [
 ]
 
 
+//const dny = dayjs().diff(dayjs(filmy[8].premiera), 'days')
+for(let k in filmy) {
+	//console.log(filmy[k])
+	console.log(filmy["premiera"])
+}
 
 const detailFilmu = document.querySelector("#detail-filmu")
 detailFilmu.innerHTML=''
