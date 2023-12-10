@@ -103,4 +103,131 @@ const filmy = [
 			'Na zámek v podhůří Krkonoš přijíždí jeho nový majitel Štěpán se svojí snoubenkou, krásnou komtesou Blankou, a mladším bratrem Adamem. Cestou kočár nešťastně srazí kolemjdoucí dívku, Adam jí pomůže a ona se do něj zamiluje. Na zámku Adam objeví starou vlašskou knihu, která by měla obsahovat cestu k pokladům. Tajemné značky vlašské knihy však nedokáže vyluštit ani národopisec Jiráček, který v kraji sbírá pověsti a nevychází z údivu nad tím, že zdejší lidé stále věří v Krakonoše. Na zámku se objeví záhadný cizinec a nabídne Štěpánovi, že jej k pokladu za určitých podmínek dovede. Výprava do hor může začít. Naplní se Liduščina láska k Adamovi? Jakou záhadu skrývá starý obraz na zámku Hůrka a co strašlivého se v horách kdysi odehrálo? A kdo je vlastně Krakonoš a jaké je jeho největší tajemství? (csfd.cz, Česká televize)',
 		premiera: '2022-12-24',
 	},
+	{
+		id: 'muz-na-mesici',
+		nazev: 'Muž na měsíci',
+		plakat: {
+			url: 'images/manOnTheMoon.jpg',
+			sirka: 420,
+			vyska: 592,
+		},
+		ochutnavka: 'Životopis o Andym Kaufmanovi.',
+		popis:
+			'NaAndy Kaufman byl označován za nejnápaditějšího komika, mistra v provokování obecenstva, který dokázal vyvolat bouře smíchu, úplné ticho i skutečné slzy. Již v mladém věku ho však postihla nevyléčitelná choroba. Ve filmu "Muž na Měsíci" spojili své síly a schopnosti tři z nejúspěšnějších osobností v oblasti současného filmu - Oscary ověnčený režisér Miloš Forman, úspěšný producent a herec Danny De Vito a komediální superhvězda Jim Carrey. Filmový příběh zachycuje divokou a zábavnou jízdu Andyho životem - od prvních důležitých chvil až po smutný konec',
+		premiera: '2000-05-11',
+	},
 ]
+
+
+
+const detailFilmu = document.querySelector("#detail-filmu")
+detailFilmu.innerHTML=''
+
+filmy.forEach((movies) => {
+	
+	if ("#"+ movies.id===window.location.hash) {
+		detailFilmu.innerHTML+=`<div class="row g-0">
+
+		<div class="col-md-5">
+			<img
+				src="${movies.plakat.url}"
+				alt="plakát"
+				class="img-fluid rounded-start"
+				width="663"
+				height="909"
+			/>
+		</div>
+		<div class="col-md-7">
+			<div class="card-body">
+				<h5 class="card-title">${movies.nazev}</h5>
+				<p class="card-text">
+					<small class="text-muted" id="premiera"
+				<p class="card-text">${movies.popis}.</p>
+						Premiéra: <strong>${dayjs(movies.premiera).format('DD.MM.YYYY')}</strong>, což bylo před x
+						dny.</small
+					>
+				</p>
+				<h6>Hodnocení</h6>
+				<div class="stars">
+					<button
+						class="far fa-star button-star"
+						data-mdb-toggle="tooltip"
+						title="Nic moc"
+					>
+						1
+					</button>
+					<button
+						class="far fa-star button-star"
+						data-mdb-toggle="tooltip"
+						title="Ucházející"
+					>
+						2
+					</button>
+					<button
+						class="far fa-star button-star"
+						data-mdb-toggle="tooltip"
+						title="Dobrý"
+					>
+						3
+					</button>
+					<button
+						class="far fa-star button-star"
+						data-mdb-toggle="tooltip"
+						title="Skvělý"
+					>
+						4
+					</button>
+					<button
+						class="far fa-star button-star"
+						data-mdb-toggle="tooltip"
+						title="Úžasný"
+					>
+						5
+					</button>
+				</div>
+
+				<h6 class="mt-4">Poznámka</h6>
+				<form id="note-form">
+					<div class="row">
+						<div class="col-md-6 col-lg-7 col-xl-8 mb-2">
+							<div class="form-outline">
+								<textarea
+									class="form-control"
+									id="message-input"
+									rows="4"
+								></textarea>
+								<label class="form-label" for="message-input"
+									>Text poznámky</label
+								>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-5 col-xl-4">
+							<div class="form-check d-flex justify-content-center mb-2">
+								<input
+									class="form-check-input me-2 mb-2"
+									type="checkbox"
+									value=""
+									id="terms-checkbox"
+								/>
+								<label class="form-check-label" for="terms-checkbox">
+									Souhlasím se všeobecnými podmínky užívání.
+								</label>
+							</div>
+							<button type="submit" class="btn btn-primary btn-block">
+								Uložit
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</div>`
+} 
+
+	
+	
+})
+
+
